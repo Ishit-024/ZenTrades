@@ -121,70 +121,67 @@ versioned change tracking.
 ## Workflow Architecture
 
 The automation pipeline processes demo call transcripts and onboarding updates to generate and maintain versioned Retell AI agent configurations.
-                                ┌────────────────────────────┐
-                                │   Demo Call Transcript     │
-                                └─────────────┬──────────────┘
-                                              │
-                                              ▼
-                               ┌─────────────────────────────┐
-                               │ Transcript Processing Layer │
-                               │  • Parsing                  │
-                               │  • Cleaning                 │
-                               │  • Normalization            │
-                               └─────────────┬───────────────┘
-                                             │
-                                             ▼
-                               ┌─────────────────────────────┐
-                               │  Structured Data Extraction │
-                               │      (JSON Generation)      │
-                               └─────────────┬───────────────┘
-                                             │
-                                             ▼
-                               ┌─────────────────────────────┐
-                               │    Account Memo (v1)        │
-                               │  Structured Business Data   │
-                               └─────────────┬───────────────┘
-                                             │
-                                             ▼
-                               ┌─────────────────────────────┐
-                               │ Retell Agent Draft Spec v1  │
-                               │  Initial AI Receptionist    │
-                               └─────────────┬───────────────┘
-                                             │
-                                             ▼
-                               ┌─────────────────────────────┐
-                               │     Account Artifact Store  │
-                               │        Versioned Data       │
-                               └─────────────┬───────────────┘
-                                             │
-                                             ▼
-                           ┌────────────────────────────────────┐
-                           │  Onboarding Transcript / Form      │
-                           └─────────────┬──────────────────────┘
-                                         │
-                                         ▼
-                          ┌────────────────────────────────────┐
-                          │      Update Extraction Layer       │
-                          │   Detect Changes / New Data        │
-                          └─────────────┬──────────────────────┘
-                                        │
-                                        ▼
-                          ┌────────────────────────────────────┐
-                          │     Updated Account Memo (v2)      │
-                          │  Modified Business Configuration   │
-                          └─────────────┬──────────────────────┘
-                                        │
-                                        ▼
-                          ┌────────────────────────────────────┐
-                          │   Updated Retell Agent Spec (v2)   │
-                          │  Revised AI Receptionist Config    │
-                          └─────────────┬──────────────────────┘
-                                        │
-                                        ▼
-                          ┌────────────────────────────────────┐
-                          │        Changelog Generator         │
-                          │  Tracks differences between v1/v2  │
-                          └────────────────────────────────────┘
+
+```
+                +------------------------+
+                |   Demo Call Transcript |
+                +-----------+------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Transcript Processing      |
+              |  - Parsing                  |
+              |  - Cleaning                 |
+              |  - Normalization            |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Structured Data Extraction |
+              |  (Generate Business JSON)   |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Account Memo Generator     |
+              |  (Business Knowledge Base)  |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Retell Agent Spec Builder  |
+              |  Initial AI Receptionist    |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Account Artifact Storage   |
+              |  Versioned Config (v1)      |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Onboarding Transcript/Form |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Update Extraction Layer    |
+              |  Detect New Information     |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Config Regeneration        |
+              |  Updated Memo + Agent (v2)  |
+              +-------------+---------------+
+                            |
+                            v
+              +-----------------------------+
+              |  Changelog Generator        |
+              |  Track Differences v1 → v2  |
+              +-----------------------------+
+```
 
 # Tech Stack
 
