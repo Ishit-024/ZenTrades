@@ -19,10 +19,7 @@
 ---
 ## 🎥 Project Walkthrough (Video Demo)
 
-To make the workflow and automation pipeline easier to understand, I have recorded a short **visual walkthrough** explaining the architecture, pipeline execution, and generated outputs.
-
-Click the thumbnail below to watch the demo:
-
+To make the workflow and automation pipeline easier to understand, I have recorded a short **visual walkthrough** explaining the pipeline execution. 
 <p align="center">
   <a href="https://www.loom.com/share/c58d35e36fbd4484b0b758e69f318f2a">
     <img src="https://cdn.loom.com/sessions/thumbnails/c58d35e36fbd4484b0b758e69f318f2a-with-play.gif" width="700">
