@@ -203,23 +203,23 @@ All infrastructure follows the **zero-cost constraint** of the assignment.
 ## Repository Structure
 
 The repository is organized to clearly separate datasets, automation workflows, generated artifacts, and helper utilities.
-clara-answers-automation/
+
+```
+ZenTrades/
 │
 ├── workflows/
-│   │
 │   └── n8n_workflow.json
-│       n8n automation workflow responsible for
-│       orchestrating the entire pipeline.
+│       # n8n automation workflow responsible for orchestrating the entire pipeline
 │
 ├── dataset/
 │   │
 │   ├── demo_calls/
-│   │       Demo call transcripts used to generate
-│   │       initial agent configurations.
+│   │   └── demo_call_1.txt
+│   │       # Demo call transcripts used to generate initial agent configurations
 │   │
 │   └── onboarding_calls/
-│           Onboarding transcripts or forms used
-│           to update existing agent configurations.
+│       └── onboarding_call_1.txt
+│           # Onboarding transcripts or forms used to update configurations
 │
 ├── outputs/
 │   │
@@ -228,40 +228,30 @@ clara-answers-automation/
 │       └── <account_id>/
 │           │
 │           ├── v1/
-│           │   │
 │           │   ├── account_memo.json
-│           │   │       Structured business information
-│           │   │       extracted from demo calls.
+│           │   │   # Structured business information extracted from demo calls
 │           │   │
 │           │   └── agent_spec.json
-│           │           Initial Retell AI receptionist
-│           │           configuration.
+│           │       # Initial Retell AI receptionist configuration
 │           │
 │           └── v2/
-│               │
 │               ├── account_memo.json
-│               │       Updated business memo generated
-│               │       after onboarding updates.
+│               │   # Updated business memo generated after onboarding updates
 │               │
 │               └── agent_spec.json
-│                       Revised agent configuration.
+│                   # Revised AI receptionist configuration
 │
 ├── changelog/
-│   │
 │   └── <account_id>_changes.json
-│       Tracks modifications between agent versions.
+│       # Tracks modifications between agent configuration versions
 │
 ├── scripts/
-│   │
 │   └── helper_scripts.js
-│       Utility scripts used for preprocessing,
-│       formatting, or workflow support.
+│       # Utility scripts used for preprocessing, formatting, or workflow support
 │
 └── README.md
-        Documentation explaining the architecture,
-        workflow setup, and instructions for running
-        the automation pipeline.
----
+    # Documentation explaining architecture, setup, and usage
+```
 
 # Account Memo Format
 
