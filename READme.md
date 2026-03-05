@@ -1,8 +1,7 @@
 <p align="center">
 
-# Clara Answers Automation Pipeline
+# Automation Pipeline
 
-### Zentrades Intern Assignment Submission
 
 </p>
 
